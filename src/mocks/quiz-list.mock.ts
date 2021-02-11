@@ -30,12 +30,14 @@ import { Question } from '../models/question.model';
 
 export const QUIZ_LIST: Quiz[] = [
     {
+        id: '1',
         name: 'Les Acteurs', // What's happening if I change this value..?
         theme: 'Actors',
         questions: [QUESTION_ACTOR],
         creationDate: "",
     },
     {
+        id: '2',
         name: 'Les Sports',
         theme: 'Sports',
         questions: [QUESTION_SPORT],

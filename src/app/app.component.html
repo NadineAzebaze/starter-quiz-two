@@ -1,5 +1,12 @@
 <app-header></app-header>
 <div class="main-content">
-    <app-quiz-form></app-quiz-form>
+    <router-outlet></router-outlet>
+    <!--app-quiz-form></app-quiz-form-->
     <app-quiz-list></app-quiz-list>
+    <h1>{{title}}</h1>
+    <nav>
+    <a routerLink="/quiz">Quiz</a>
+    </nav>
+    <router-outlet></router-outlet>
+    
 </div>

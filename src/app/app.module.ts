@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing.module';
+import { EditQuizComponent} from './quizzes/edit-quiz/edit-quiz.component';
 
 @NgModule({
   declarations: [
