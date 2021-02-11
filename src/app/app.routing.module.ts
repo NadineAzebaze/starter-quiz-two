@@ -1,18 +1,19 @@
 import {NgModule} from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
-import { TicketListComponent} from './tickets/ticket-list/ticket-list.component';
-import {UserListComponent} from './users/user-list/user-list.component';
+import {QuizListComponent} from './quizzes/quiz-list/quiz-list.component';
+import{EditQuizComponent} from './quizzes/edit-quiz/edit-quiz.component';
 
 const routes: Routes = [
-    {path: 'tickets', component: TicketListComponent},
-    {path: 'users', component: UserListComponent}
+    {path: 'quiz-list', component: QuizListComponent},
+    {path: 'edit-quiz', component: EditQuizComponent}
 ];
 
 @NgModule ({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    //exports: [RouterModule]
 })
 
 export class AppRoutingModule{
-    
+    forRoot(routes: Routes){
+    }
 }

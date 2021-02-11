@@ -8,6 +8,7 @@ import { QuizComponent } from './quizzes/quiz/quiz.component';
 import { HeaderComponent } from './header/header.component';
 import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,14 @@ import { HttpClientModule } from '@angular/common/http';
     QuizListComponent,
     QuizComponent,
     HeaderComponent,
-    QuizFormComponent
+    QuizFormComponent,
+    EditQuizComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

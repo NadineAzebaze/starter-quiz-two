@@ -4,6 +4,7 @@ import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import { QuizListComponent } from 'src/app/quizzes/quiz-list/quiz-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class QuizService {
    * Services Documentation:
    * https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
    */
-  //private http MyUrl;
+  private MyUrl = 'https://raw.githubusercontent.com/NablaT/starter-quiz-two/master/mock-quiz.json';
    /**
     * The list of quiz.
     * The list is retrieved from the mock.
@@ -26,17 +27,20 @@ export class QuizService {
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(QUIZ_LIST);
 
-  constructor() {
-    //private http: HttpClientModule;
+  constructor(private http: HttpClient) {
   }
- /* getQuizzes() {
-    MyUrl = this.http.get<Quiz[]>(this.MyUrl);
-  }*/
+  getQuizzes(){
+    this.http.get<Quiz[]>(this.MyUrl).subscribe((quizzes) => 
+    {
+      this.quizzes = quizzes;
+      this.quizzes$.next(quizzes);
+    })
+  }
   addQuiz(quiz: Quiz) {
     this.quizzes.push(quiz);
     this.quizzes$.next(this.quizzes);
     //private newQuiz = new quiz Quiz();
-    //add(term: string): void {
+    //add(term: string): void 
     //  this.searchTerms.next(term);
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
