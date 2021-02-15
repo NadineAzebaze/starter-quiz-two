@@ -53,4 +53,9 @@ export class QuizService {
     });
     this.quizzes$.next(this.quizzes);
   }
+
+  getQuiz(id: number): Observable<Quiz> {
+    // TODO: send the message _after_ fetching the hero
+    return of(this.quizzes.find(quiz => quiz.id === id));
+  }
 }
