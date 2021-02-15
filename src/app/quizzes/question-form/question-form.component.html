@@ -1,0 +1,22 @@
+<button class="button-card" (click)="addAnswer()">Add answer</button>
+<div class="answer" formArrayName="answers">
+    <div *ngFor="let address of answers.controls; let i=index">
+        <label>
+            answer
+            <input typr="text" [formControlName]="'value'">
+            <br>
+            Correct
+            <input type="checkbox" [formControlName]="'isCorrect'">
+        </label>
+    </div>
+</div>
+private createAnswer(){
+    return this.formBuilder.group({
+        value: '',
+        isCorrect: false,
+    });
+}
+
+addAnswer(){
+    this.answers.push(this.createAnswer());
+}
